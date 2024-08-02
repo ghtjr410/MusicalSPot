@@ -4,6 +4,7 @@ import {
   reviewRecent40,
   reviewLikes40,
   reviewViews40,
+  MusicalReviews,
 } from "services/review/reviewService";
 import { Review } from "./ReviewType";
 import ReviewDetail from "./ReviewDetail";
@@ -14,7 +15,7 @@ import "styles/style.css";
 import { HeaderProvider } from "services/HeaderService/HeaderService";
 import CommonHeader from "acomponents/header/CommonHeader";
 import { useAuth } from "hooks/useAuthHook";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ReviewItemSkeleton } from "acomponents/review/LoadingModal";
 
 type SortType = "recent" | "likes" | "views";
@@ -30,7 +31,7 @@ const ReviewList: React.FC = () => {
   const [sortType, setSortType] = useState<SortType>("recent");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
-
+  const { musicalId } = useParams<string>();
   const observer = useRef<IntersectionObserver | null>(null);
   const navigate = useNavigate();
 
@@ -42,38 +43,34 @@ const ReviewList: React.FC = () => {
     checkAuthStatus,
   } = useAuth();
 
-  const lastReviewElementRef = useCallback(
-    (node: HTMLDivElement | null) => {
-      if (loading) return;
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setPage((prevPage) => prevPage + 1);
-        }
-      });
-      if (node) observer.current.observe(node);
-    },
-    [loading, hasMore]
-  );
+  // 페이지가 변경될 때마다 리뷰를 불러오는 효과
+  useEffect(() => {
+    fetchReviews();
+  }, [page, sortType]);
 
   const fetchReviews = async () => {
     setLoading(true);
     setError(null);
     try {
       let response;
-      switch (sortType) {
-        case "recent":
-          response = await reviewRecent40(page);
-          break;
-        case "likes":
-          response = await reviewLikes40(page);
-          break;
-        case "views":
-          response = await reviewViews40(page);
-          break;
-        default:
-          response = await reviewRecent40(page);
+      if (musicalId) {
+        response = await MusicalReviews(musicalId);
+      } else {
+        switch (sortType) {
+          case "recent":
+            response = await reviewRecent40(page);
+            break;
+          case "likes":
+            response = await reviewLikes40(page);
+            break;
+          case "views":
+            response = await reviewViews40(page);
+            break;
+          default:
+            response = await reviewRecent40(page);
+        }
       }
+
       const data = response.data;
 
       if (!Array.isArray(data)) {
@@ -92,18 +89,19 @@ const ReviewList: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    setPage(0);
-    setReviews([]);
-    setHasMore(true);
-    fetchReviews();
-  }, [sortType]);
-
-  useEffect(() => {
-    if (page > 0) {
-      fetchReviews();
-    }
-  }, [page]);
+  const lastReviewElementRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (loading) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setPage((prevPage) => prevPage + 1);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [loading, hasMore]
+  );
 
   const handleReviewSubmitted = useCallback(() => {
     setPage(0);
@@ -124,11 +122,9 @@ const ReviewList: React.FC = () => {
   const handleCreateReviewClick = () => {
     checkAuthStatus(
       (nickname) => {
-        console.log("인증된 사용자:", nickname);
         setIsCreateModalOpen(true);
       },
       () => {
-        console.log("인증 필요함");
         setShowLoginModal(true);
       }
     );
@@ -236,7 +232,7 @@ const ReviewList: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3">
             {reviews.map((review, index) => (
               <div
-                key={`${review.id}-${index}`}
+                key={review.id}
                 ref={index === reviews.length - 1 ? lastReviewElementRef : null}
                 onClick={() => handleReviewClick(review.id)}
                 className="cursor-pointer"

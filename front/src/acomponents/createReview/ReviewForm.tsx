@@ -30,6 +30,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [titleError, settitleError] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | undefined>();
+  const [musicalError, setMusicalError] = useState<string | null>(null);
 
   useEffect(() => {
     if (existingReview) {
@@ -51,7 +52,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
 
   const handleSubmit = async (content: string) => {
     if (!formData.musicalId) {
-      setError("뮤지컬을 선택해주세요.");
+      setMusicalError("뮤지컬을 선택해주세요.");
       return;
     }
 
@@ -62,6 +63,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
 
     setLoading(true);
     setError(null);
+    setMusicalError(null);
 
     try {
       if (existingReview) {
@@ -118,11 +120,17 @@ const ReviewForm: React.FC<ReviewFormProps> = ({
       <div className="w-full md:w-1/3">
         <MusicalSelector onMusicalSelect={handleMusicalSelect} />
         <MusicalSearch onMusicalSelect={handleMusicalSelect} />{" "}
+        {musicalError && <p className="text-red-500 mt-4">{musicalError}</p>}
       </div>
       <div className="w-full md:w-1/3">
         <div className="mb-4">
           <label htmlFor="title" className="block mb-2 text-gray-700">
-            제목
+            <div className="flex justify-between items-center">
+              <span>제목</span>
+              {titleError && (
+                <span className="text-red-500 text-sm">{titleError}</span>
+              )}
+            </div>
           </label>
           <input
             type="text"
