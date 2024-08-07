@@ -205,14 +205,14 @@ const DetailPage: React.FC = () => {
                       )}
                       <span className="text-lg">{likeCount}</span>
                     </div>
-                    {/* <div className="flex items-center text-black">
+                    <div className="flex items-center text-black">
                       <span
                         className="text-lg border-b border-black cursor-pointer"
                         onClick={handleReviewClick}
                       >
                         {details.reviewCount} reviews
                       </span>
-                    </div> */}
+                    </div>
                   </div>
                 </div>
 
