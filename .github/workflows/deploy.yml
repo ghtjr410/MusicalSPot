@@ -40,14 +40,6 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
-      env: # 추가
-        DB_URL: ${{ secrets.DB_URL }}
-        DB_USERNAME: ${{ secrets.DB_USERNAME }}
-        DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        REDIS_HOST: ${{ secrets.REDIS_HOST }}
-        REDIS_PORT: ${{ secrets.REDIS_PORT }}
-        REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
-        REDIS_SSL_ENABLED: ${{ secrets.REDIS_SSL_ENABLED }}
       working-directory: back # working-directory 옵션을 사용하여 back 디렉토리에서 명령어 실행
 
     - name: Deploy to Azure Web App
