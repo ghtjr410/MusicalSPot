@@ -77,7 +77,7 @@ public class WebSecurityConfig {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
         // 나중에 클라이언트 배포하는 주소를 적으면됌
         corsConfiguration.addAllowedOrigin("http://localhost:3000"); // 클라이언트 도메인 명시
-        corsConfiguration.addAllowedOrigin("https://happy-mud-0f0400300.5.azurestaticapps.net"); // 배포 서버 도메인 명시
+        corsConfiguration.addAllowedOrigin("https://musical.ghtjr.com"); // 배포 서버 도메인 명시
         // corsConfiguration.addAllowedOrigin("*"); // 모든 출처 허용
         corsConfiguration.addAllowedMethod("*"); // 모든 HTTP 메서드 허용
         corsConfiguration.addAllowedHeader("*"); // 모든 헤더 허용
