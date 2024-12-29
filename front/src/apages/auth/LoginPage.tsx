@@ -88,7 +88,7 @@ const LoginPage: React.FC = () => {
         <AuthButton text="로그인" onClick={handleLogin} className="mt-4" />
         <div className="my-2"></div>
         <AuthButton text="회원가입" onClick={navigateToSignUp} variant="secondary" />
-        <AuthDivider />
+        {/* <AuthDivider /> */}
         <SNSLoginSection />
       </div>
       </div>

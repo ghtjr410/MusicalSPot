@@ -1,4 +1,4 @@
-// import { setCookie } from 'utils/CookieUtil/cookieUtis';
+
 import { ResponseBody } from 'utils/TypeUtil';
 import { SignInResponseDto } from 'utils/DtoUtil/response/auth';
 import { ResponseCode } from 'utils/TypeUtil/enums';
@@ -21,7 +21,7 @@ const useSignInResponse = () => {
       return;
     }
     if (code === ResponseCode.DATABASE_ERROR) {
-      alert('데이터베이스 오류입니다.');
+      alert('올바른 아이디와 비밀번호인지 확인해주세요.');
       return;
     }
     if (code !== ResponseCode.SUCCEESS) {

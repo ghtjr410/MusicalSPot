@@ -18,9 +18,10 @@ const SNSLoginSection: React.FC = () => {
 
   return (
     <div className="text-center mt-4">
-      <div className="text-gray-500 mb-2">SNS 로그인</div>
+      <div className="text-gray-500 mb-2">　　　</div>
       <div className="flex justify-center space-x-4">
-        <img
+        <div className='w-12 h-12'></div>
+        {/* <img
           src={kakaoSignInImage}
           alt="카카오 로그인"
           className="w-12 h-12 cursor-pointer"
@@ -31,7 +32,7 @@ const SNSLoginSection: React.FC = () => {
           alt="네이버 로그인"
           className="w-12 h-12 cursor-pointer"
           onClick={handleNaverSignIn}
-        />
+        /> */}
       </div>
     </div>
   );

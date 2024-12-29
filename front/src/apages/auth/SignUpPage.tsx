@@ -160,7 +160,7 @@ const SignUpPage: React.FC = () => {
       )} className="mt-4" />
       <div className="my-2"></div>
       <AuthButton text="로그인" onClick={() => navigateToLogin()} variant="secondary" />
-      <AuthDivider />
+      {/* <AuthDivider /> */}
       <SNSLoginSection />
       <Modal
         isOpen={successModalOpen}
