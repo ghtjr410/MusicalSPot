@@ -13,7 +13,7 @@ public class EmailProvider {
     
     private final JavaMailSender javaMailSender;
 
-    private final String SUBJECT = "[Mini Blog 프로젝트] 인증메일입니다.";
+    private final String SUBJECT = "[Musical Spot 프로젝트] 인증메일입니다.";
 
     public boolean sendCertificationMail (String email,String certificationNumber){
 
