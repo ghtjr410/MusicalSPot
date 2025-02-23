@@ -1,24 +1,26 @@
 package com.housing.back.service;
 
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.concurrent.TimeUnit;
+import com.housing.back.entity.auth.BlacklistTokenEntity;
+import com.housing.back.repository.auth.BlacklistTokenRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class JwtBlacklistService {
-
-    private final RedisTemplate<String, String> redisTemplate;
-
-    public JwtBlacklistService(RedisTemplate<String, String> redisTemplate) {
-        this.redisTemplate = redisTemplate;
-    }
+    
+    private final BlacklistTokenRepository blacklistTokenRepository;
 
     public void addToBlacklist(String token, long expirationTimeInMillis) {
-        redisTemplate.opsForValue().set(token, "blacklisted", expirationTimeInMillis, TimeUnit.MILLISECONDS);
+        BlacklistTokenEntity blacklistToken = BlacklistTokenEntity.builder().token(token).expiresAt(expirationTimeInMillis).build();
+
+        blacklistTokenRepository.save(blacklistToken);
+        
     }
 
     public boolean isBlacklisted(String token) {
-        return Boolean.TRUE.equals(redisTemplate.hasKey(token));
+        return blacklistTokenRepository.existsByToken(token);
     }
 }
