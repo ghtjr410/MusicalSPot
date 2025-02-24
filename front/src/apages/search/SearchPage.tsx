@@ -63,7 +63,7 @@ const SearchPage: React.FC = () => {
 
   // 검색 제출 시 호출되는 핸들러
   const handleSearchSubmit = async () => {
-    navigate(`/auth/search?query=${encodeURIComponent(searchInput)}`); // 검색어를 포함한 URL로 이동
+    navigate(`/search?query=${encodeURIComponent(searchInput)}`); // 검색어를 포함한 URL로 이동
     const results = await searchMusicalsByTitle(searchInput); // API 호출로 검색 결과 가져오기
     if (results.data.length === 0) {
       setNoResults(true); // 검색 결과가 없는 경우
@@ -98,7 +98,7 @@ const SearchPage: React.FC = () => {
     try {
       const result = await musicalDetailsIncrementView(id.toString()); // 조회수 증가 함수 호출
       console.log("View Count Increment Response:", result); // 결과 콘솔 출력
-      navigate(`/auth/details/${id}`); // DetailPage로 이동
+      navigate(`/details/${id}`); // DetailPage로 이동
     } catch (error) {
       console.error("Error incrementing view count:", error);
     }

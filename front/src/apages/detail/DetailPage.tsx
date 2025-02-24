@@ -124,7 +124,7 @@ const DetailPage: React.FC = () => {
 
   //todo: 0805 마지막 수정
   const handleReviewClick = () => {
-    navigate(`/auth/reviewlist/${musicalId}`);
+    navigate(`/reviewlist/${musicalId}`);
   };
 
   return (
@@ -206,12 +206,12 @@ const DetailPage: React.FC = () => {
                       <span className="text-lg">{likeCount}</span>
                     </div>
                     <div className="flex items-center text-black">
-                      <span
+                      {/* <span
                         className="text-lg border-b border-black cursor-pointer"
                         onClick={handleReviewClick}
                       >
                         {details.reviewCount} reviews
-                      </span>
+                      </span> */}
                     </div>
                   </div>
                 </div>

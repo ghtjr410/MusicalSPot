@@ -36,7 +36,7 @@ const CommentForm: React.FC<CommentFormProps> = ({
   };
   const handleLoginRedirect = () => {
     setShowLoginModal(false);
-    navigate("/auth/sign-in");
+    navigate("/sign-in");
   };
   return (
     <div className="mt-4">

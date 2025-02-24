@@ -109,7 +109,7 @@ const AllCategoryPage: React.FC = () => {
     try {
       const result = await musicalDetailsIncrementView(id.toString()); // 조회수 증가 함수 호출
       console.log("View Count Increment Response:", result); // 결과 콘솔 출력
-      navigate(`/auth/details/${id}`); // DetailPage로 이동
+      navigate(`/details/${id}`); // DetailPage로 이동
     } catch (error) {
       console.error("Error incrementing view count:", error);
     }
@@ -131,13 +131,13 @@ const AllCategoryPage: React.FC = () => {
   // 드롭다운에서 카테고리 선택 시 실행되는 함수
   const handleCategorySelect = (categoryId: string) => {
     setShowDropdown(false);
-    navigate(`/auth/category/${categoryId}`);
+    navigate(`/category/${categoryId}`);
   };
 
   // 드롭다운에서 전체보기를 선택 시 실행되는 함수
   const handleAllCategoriesSelect = () => {
     setShowDropdown(false);
-    navigate(`/auth/category/all`);
+    navigate(`/category/all`);
   };
 
   // 뮤지컬 데이터를 정렬하는 함수

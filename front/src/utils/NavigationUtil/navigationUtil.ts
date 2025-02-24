@@ -5,39 +5,39 @@ const useNavigateHelper = () => {
   const navigate = useNavigate();
 
   const navigateToHome = () => {
-    navigate('/auth/home');
+    navigate('/home');
   };
   const navigateToMyblog = () => {
-    navigate('/auth/my');
+    navigate('/my');
   };
 
   const navigateToLogin = () => {
-    navigate('/auth/sign-in');
+    navigate('/sign-in');
   };
   const navigateToSignUp = () => {
-    navigate('/auth/sign-up');
+    navigate('/sign-up');
   };
   const navigateToCreateNickname = () => {
-    navigate('/auth/create-nickname');
+    navigate('/create-nickname');
   };
   
   const navigateToTest = () => {
-    navigate('/auth/test');
+    navigate('/test');
   };  
   const navigateToUserBlog= (nickname: String) => {
-    navigate(`/auth/user-blog/${nickname}`)
+    navigate(`/user-blog/${nickname}`)
   };
   const navigateToEditPost = () => {
-    navigate('/auth/edit-post')
+    navigate('/edit-post')
   };
   const navigateToEditEditPost = (postId: string) => {
-    navigate(`/auth/edit-post/${postId}`);
+    navigate(`/edit-post/${postId}`);
   };
   const navigateToPost = (postId: number, nickname: string) => {
-    navigate(`/auth/post/${postId}/${nickname}`);
+    navigate(`/post/${postId}/${nickname}`);
   };
   const navigateToDeleteAccount = () => {
-    navigate('/auth/delete-account')
+    navigate('/delete-account')
   };
 
 

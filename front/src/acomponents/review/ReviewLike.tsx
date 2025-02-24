@@ -51,7 +51,7 @@ const ReviewLike: React.FC<ReviewLikeProps> = ({
 
   const handleLoginRedirect = () => {
     setShowLoginModal(false);
-    navigate("/auth/sign-in");
+    navigate("/sign-in");
   };
 
   return (

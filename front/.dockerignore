@@ -1,0 +1,9 @@
+# Node.js 의존성
+node_modules
+# 로그 파일
+*.log
+# Git 저장소
+.git
+# 빌드 출력
+dist
+build

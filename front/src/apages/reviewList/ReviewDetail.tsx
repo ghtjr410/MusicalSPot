@@ -56,7 +56,7 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({
   }, [reviewId, isAuthenticated, onUpdate]);
 
   const handleMusicalDetail = () => {
-    navigate(`/auth/details/${review?.musicalId}`);
+    navigate(`/details/${review?.musicalId}`);
   };
 
   useEffect(() => {

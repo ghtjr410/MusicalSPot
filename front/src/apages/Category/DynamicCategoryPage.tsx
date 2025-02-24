@@ -179,7 +179,7 @@ const DynamicCategoryPage: React.FC = () => {
     try {
       const result = await musicalDetailsIncrementView(id.toString()); // 조회수 증가 함수 호출
       console.log("View Count Increment Response:", result); // 결과 콘솔 출력
-      navigate(`/auth/details/${id}`); // DetailPage로 이동
+      navigate(`/details/${id}`); // DetailPage로 이동
     } catch (error) {
       console.error("Error incrementing view count:", error);
     }
@@ -204,14 +204,14 @@ const DynamicCategoryPage: React.FC = () => {
   const handleCategorySelect = (categoryId: string, categoryName: string) => {
     setCategoryName(categoryName); // 선택한 카테고리 이름 설정
     setShowDropdown(false); // 드롭다운 메뉴 닫기
-    navigate(`/auth/category/${categoryId}`); // 선택한 카테고리로 페이지 이동
+    navigate(`/category/${categoryId}`); // 선택한 카테고리로 페이지 이동
   };
 
   // 드롭다운에서 전체보기를 선택 시 실행되는 함수
   const handleAllCategoriesSelect = () => {
     setCategoryName("전체보기"); // 선택한 카테고리 이름을 전체보기로 설정
     setShowDropdown(false); // 드롭다운 메뉴 닫기
-    navigate(`/auth/category/all`); // 모든 카테고리를 보는 페이지로 이동
+    navigate(`/category/all`); // 모든 카테고리를 보는 페이지로 이동
   };
 
   // 정렬 옵션에 따라 뮤지컬 데이터를 정렬하는 함수

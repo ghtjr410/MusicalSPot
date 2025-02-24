@@ -56,28 +56,28 @@ function App() {
       )}
       
       <Routes>
-        <Route path="/auth">
 
-          <Route path="search" element={<SearchPage />} />
-          <Route
-            path="category/:categoryId"
-            element={<DynamicCategoryPage />}
-          />
-          <Route path="My" element={<MyPage />} />
-          <Route path="all" element={<AllCategoryPage />} />
-          <Route path="details/:musicalId" element={<DetailPage />} />
-          <Route path="home" element={<Mainpage />} />
-          <Route path="category" element={<CategoryPage />} />
-          <Route path="musical" element={<MusicalPage />} />
-          <Route path="reviewlist" element={<ReviewList />} />
-          <Route path="reviewlist/:musicalId" element={<ReviewList />} />
-          <Route path="sign-in" element={<LoginPage />} />
-          <Route path="sign-up" element={<SignUpPage />} />
-          <Route path="create-nickname" element={<CreateNickNamePage />} />
-          <Route path="test" element={<TestPage />} />
-        </Route>
+
+        <Route path="search" element={<SearchPage />} />
+        <Route
+          path="category/:categoryId"
+          element={<DynamicCategoryPage />}
+        />
+        <Route path="My" element={<MyPage />} />
+        <Route path="all" element={<AllCategoryPage />} />
+        <Route path="details/:musicalId" element={<DetailPage />} />
+        <Route path="home" element={<Mainpage />} />
+        <Route path="category" element={<CategoryPage />} />
+        <Route path="musical" element={<MusicalPage />} />
+        <Route path="reviewlist" element={<ReviewList />} />
+        <Route path="reviewlist/:musicalId" element={<ReviewList />} />
+        <Route path="sign-in" element={<LoginPage />} />
+        <Route path="sign-up" element={<SignUpPage />} />
+        <Route path="create-nickname" element={<CreateNickNamePage />} />
+        <Route path="test" element={<TestPage />} />
+
         <Route path='/auth/oauth-response/:token/:expirationTime/:refreshToken/:refreshExpirationTime' element={<OAuth />} />
-        <Route path="*" element={<Navigate to="/auth/home" />} />
+        <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </HeaderProvider>
   );

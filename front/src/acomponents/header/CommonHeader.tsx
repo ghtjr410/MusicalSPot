@@ -94,17 +94,17 @@ const CommonHeader: React.FC<CommonHeaderProps> = ({
 
   // 전체 카테고리 클릭 핸들러
   const handleAll = () => {
-    navigate(`/auth/category/all`);
+    navigate(`/category/all`);
   };
 
   // 특정 카테고리 클릭 핸들러
   const handleCategory = (id: number) => {
-    navigate(`/auth/category/${id}`);
+    navigate(`/category/${id}`);
   };
 
   // 리뷰 리스트 클릭 핸들러
   const handleReview = () => {
-    navigate(`/auth/reviewlist`);
+    navigate(`/reviewlist`);
   };
 
   // 인증 버튼 클릭 핸들러
@@ -234,13 +234,13 @@ const CommonHeader: React.FC<CommonHeaderProps> = ({
       searchInput &&
       (event.type === "click" || (event as React.KeyboardEvent).key === "Enter")
     ) {
-      navigate(`/auth/search?query=${encodeURIComponent(searchInput)}`);
+      navigate(`/search?query=${encodeURIComponent(searchInput)}`);
     }
   };
 
   // 검색 결과 클릭 핸들러
   const handleSearchResultClick = (result: any) => {
-    navigate(`/auth/search?query=${encodeURIComponent(result.title)}`);
+    navigate(`/search?query=${encodeURIComponent(result.title)}`);
   };
 
   // 클라이언트가 접속 중인 주소링크를 Navigate 하거나 연결하는 버튼 스타일 바꾸기

@@ -125,7 +125,7 @@ const Mainpage: React.FC = () => {
     try {
       const result = await musicalDetailsIncrementView(id.toString()); // 조회수 증가 함수 호출
       console.log("View Count Increment Response:", result); // 결과 콘솔 출력
-      navigate(`/auth/details/${id}`); // DetailPage로 이동
+      navigate(`/details/${id}`); // DetailPage로 이동
     } catch (error) {
       console.error("Error incrementing view count:", error);
     }

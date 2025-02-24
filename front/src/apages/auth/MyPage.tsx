@@ -140,15 +140,6 @@ const MyPage: React.FC = () => {
               
               <div className="container mx-auto p-4 space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">회원종류</label>
-                  <input
-                    type="text"
-                    value={userData.type}
-                    disabled
-                    className="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-sm"
-                  />
-                </div>
-                <div>
                   <label className="block text-sm font-medium text-gray-700">이메일</label>
                   <input
                     type="email"
