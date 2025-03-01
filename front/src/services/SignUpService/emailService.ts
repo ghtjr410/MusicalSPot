@@ -94,6 +94,6 @@ export const emailCertificationResponse = (
       }
       break;
     default:
-      console.error('Unknown response code:', code);
+      // console.error('Unknown response code:', code);
   }
 };

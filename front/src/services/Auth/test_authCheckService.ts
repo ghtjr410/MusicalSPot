@@ -22,7 +22,7 @@ const refreshAccessToken = (refreshToken: string, deviceInfo: string) => {
     return accessToken;
   })
   .catch((error) => {
-    console.error("토큰 갱신 실패", error);
+    // console.error("토큰 갱신 실패", error);
     return null;
   });
 };
@@ -37,7 +37,7 @@ const refreshAccessToken = (refreshToken: string, deviceInfo: string) => {
         }
       })
       .catch((error) => {
-        console.error('리프레쉬 토큰 갱신 실패', error);
+        // console.error('리프레쉬 토큰 갱신 실패', error);
         return 'failure';
       });
   };
@@ -51,7 +51,7 @@ const refreshAccessToken = (refreshToken: string, deviceInfo: string) => {
       return 'success';
     })
     .catch((error) => {
-      console.error("엑세스 토큰 인증 실패", error);
+      // console.error("엑세스 토큰 인증 실패", error);
   
       if (refreshToken && deviceInfo) {
         return handleTokenRefresh(refreshToken, deviceInfo);
@@ -66,12 +66,12 @@ const refreshAccessToken = (refreshToken: string, deviceInfo: string) => {
     const deviceInfo = getDeviceInfo();
   
     if (!accessToken && !refreshToken) { // 엑세스, 리프레시 둘 다 존재 X
-      console.log("엑세스 X - 리프레시 X")
+      // console.log("엑세스 X - 리프레시 X")
       return onFailure();
     }
   
     if (accessToken) { // 엑세스 존재 O
-      console.log("엑세스 O");
+      // console.log("엑세스 O");
       verifyAccessToken(accessToken, refreshToken, deviceInfo)
         .then((response) => {
           if (response === 'success') {
@@ -82,7 +82,7 @@ const refreshAccessToken = (refreshToken: string, deviceInfo: string) => {
         })
         .catch(onFailure);
     } else if (refreshToken) { // 엑세스 존재 X, 리프레시 존재 O
-      console.log("엑세스 X - 리프레시 O ")
+      // console.log("엑세스 X - 리프레시 O ")
       handleTokenRefresh(refreshToken, deviceInfo)
         .then((response) => {
           if (response === 'success') {

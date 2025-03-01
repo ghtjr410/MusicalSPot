@@ -8,14 +8,14 @@ export const combinedLogoutHandler = async (navigateToHome: () => void) => {
   const refreshToken = getCookie('refreshToken');
 
   if (accessToken || refreshToken) {
-    console.log('Tokens found:', { accessToken, refreshToken });
+    // console.log('Tokens found:', { accessToken, refreshToken });
     const result = await logout(accessToken || null, refreshToken || null);
     if (!result) {
       navigateToHome();
     }
     return result;
   } else {
-    console.error('토큰이 없음');
+    // console.error('토큰이 없음');
     navigateToHome();
     return false;
   }
@@ -38,15 +38,15 @@ const logout = (accessToken: string | null, refreshToken: string | null) => {
   })
   .then((response) => {
     if (response.status === 200) {
-      console.log("로그아웃 성공");
+      // console.log("로그아웃 성공");
       return true;  // 성공 시 true 반환
     } else {
-      console.error("로그아웃 실패");
+      // console.error("로그아웃 실패");
       return false;
     }
   })
   .catch((error) => {
-    console.error("로그아웃 실패", error);
+    // console.error("로그아웃 실패", error);
     return false; // 실패 시 false 반환
   });
 };

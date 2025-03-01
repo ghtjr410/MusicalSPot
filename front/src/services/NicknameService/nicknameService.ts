@@ -12,7 +12,7 @@ export const handleNicknameChange = (
 
     // Regular expression for validation: no special characters, no whitespace, length up to 6
     const nicknameRegex = /^[a-zA-Z0-9가-힣]{1,6}$/;
-    console.log(`$닉네임 패턴 결과 : ${nicknameRegex}, 현재 인풋 : ${nickname}`)
+    // console.log(`$닉네임 패턴 결과 : ${nicknameRegex}, 현재 인풋 : ${nickname}`)
     if (!nicknameRegex.test(nickname)) {
         setNickname(nickname);
         setNicknameError('닉네임은 공백없이 1~6자 이내의 한글,영문 및 숫자만 가능합니다.');

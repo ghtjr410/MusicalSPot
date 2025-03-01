@@ -9,7 +9,7 @@ export const MusicalReviews = async (musicalId: string) => {
       const result = await axios.get(MUSICAL_REVIEWS(musicalId));
       return result.data;
   } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
   }
 };
@@ -25,7 +25,7 @@ export const privateReviewDetails = async (reviewId: string) => {
         });
         return result.data;
     } catch (error) {
-        console.error('Error', error);
+        // console.error('Error', error);
         throw error;
     }
 } 
@@ -35,7 +35,7 @@ export const publicReviewDetails = async (reviewId: string) => {
         const result = await axios.get(PUBLIC_REVIEW_DETAILS(reviewId));
         return result.data;
     } catch (error) {
-        console.error('Error', error);
+        // console.error('Error', error);
         throw error;
     }
 } 
@@ -58,7 +58,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
       );
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -82,7 +82,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
       );
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -101,7 +101,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
       );
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -113,7 +113,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
         REVIEW_DETAILS_INCREASE_VIEW(reviewId));
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -136,7 +136,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
       );
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -158,7 +158,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
       );
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -177,7 +177,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
       );
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -189,7 +189,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
         REVIEWS_RECENT_40(page));
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -201,7 +201,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
         REVIEWS_LIKES_40(page));
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -213,7 +213,7 @@ export const createReview = async (title:string, content:string, musicalId:strin
         REVIEWS_VIEWS_40(page));
       return result.data;
     } catch (error) {
-      console.error('Error', error);
+      // console.error('Error', error);
       throw error;
     }
   }
@@ -229,7 +229,7 @@ export const reviewLike = async (reviewId: string) => {
         });
         return result.data;
     } catch (error) {
-        console.error('Error', error);
+        // console.error('Error', error);
         throw error;
     }
 } 
@@ -245,7 +245,7 @@ export const toggleReviewLike = async (reviewId: string) => {
         });
         return result.data;
     } catch (error) {
-        console.error('Error', error);
+        // console.error('Error', error);
         throw error;
     }
 } 

@@ -8,7 +8,7 @@ import useNavigateHelper from 'utils/NavigationUtil/navigationUtil';
 export default function OAuth() {
     const { navigateToHome } = useNavigateHelper();
   const { token, expirationTime, refreshToken, refreshExpirationTime } = useParams();
-  console.log("여기까진옴")
+//   console.log("여기까진옴")
   const [cookie, setCookie] = useCookies();
   const navigate = useNavigate();
   const [isRequestInProgress, setIsRequestInProgress] = useState(false);
@@ -48,11 +48,11 @@ useEffect(() => {
             if (response.status === 200) {
                 navigateToHome();
             } else {
-                console.error('Failed to send device info');
+                // console.error('Failed to send device info');
             }
         } catch (error) {
             alert("안댐");
-            console.error('Error sending device info:', error);
+            // console.error('Error sending device info:', error);
         } finally {
             setIsRequestInProgress(false);
         }

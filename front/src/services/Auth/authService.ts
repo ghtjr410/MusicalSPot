@@ -13,7 +13,7 @@ const responseHandler = <T> (response: AxiosResponse<any,any>) => {
 }
 
 const errorHandler = (error: any) => {
-    console.error('API Request Error:', error);
+    // console.error('API Request Error:', error);
     if (error.response && error.response.data) {
         const responseBody: ResponseDto = error.response.data;
         return responseBody;
@@ -89,7 +89,7 @@ export const findNicknameRequest = async () => {
   })
   .then(response => response.data)
   .catch(error => {
-      console.error('Error finding nickname', error);
+      // console.error('Error finding nickname', error);
       return null;
   });
   return result;
@@ -105,7 +105,7 @@ export const deleteAccount = async (nickname:string) => {
   })
   .then(response => response.data)
   .catch(error => {
-      console.error('Error finding nickname', error);
+      // console.error('Error finding nickname', error);
       throw error;
   });
   return result;
@@ -120,7 +120,7 @@ export const userInfo = async () => {
   })
   .then(response => response.data)
   .catch(error => {
-    console.error('Error finding nickname', error);
+    // console.error('Error finding nickname', error);
     return null;
   })
   return result;
@@ -136,7 +136,7 @@ export const changePassword = async (newPassword: string) => {
   })
   .then(response => response.data)
   .catch(error => {
-    console.error('Error finding nickname', error);
+    // console.error('Error finding nickname', error);
     return null;
   })
   return result;
@@ -148,14 +148,14 @@ export const changePassword = async (newPassword: string) => {
     const refreshToken: string | undefined = getCookie('refreshToken');
   
     if (accessToken || refreshToken) {
-      console.log('Tokens found:', { accessToken, refreshToken });
+      // console.log('Tokens found:', { accessToken, refreshToken });
       const result = await combinedLogout(accessToken || null, refreshToken || null, navigateToHome);
       if (!result) {
         navigateToHome();
       }
       return result;
     } else {
-      console.error('토큰이 없음');
+      // console.error('토큰이 없음');
       navigateToHome();
       return false;
     }
@@ -178,16 +178,16 @@ export const changePassword = async (newPassword: string) => {
     })
     .then((response) => {
       if (response.status === 200) {
-        console.log("로그아웃 성공");
+        // console.log("로그아웃 성공");
         return true;  // 성공 시 true 반환
       } else {
-        console.error("로그아웃 실패");
+        // console.error("로그아웃 실패");
         navigateToHome();
         return false;
       }
     })
     .catch((error) => {
-      console.error("로그아웃 실패", error);
+      // console.error("로그아웃 실패", error);
       navigateToHome();
       return false; // 실패 시 false 반환
     });
@@ -211,7 +211,7 @@ export const changePassword = async (newPassword: string) => {
       return accessToken;
     })
     .catch((error) => {
-      console.error("토큰 갱신 실패", error);
+      // console.error("토큰 갱신 실패", error);
       return null;
     });
   };
@@ -219,34 +219,34 @@ export const changePassword = async (newPassword: string) => {
   const handleTokenRefresh = (refreshToken: string, deviceInfo: string, navigateToMyblog: () => void, setSignInModalOpen: (value: boolean) => void) => {
     return refreshTokenRequest(refreshToken, deviceInfo)
       .then((newAccessToken) => {
-        console.log("새로운 엑세스 토큰:", newAccessToken);
+        // console.log("새로운 엑세스 토큰:", newAccessToken);
         if (newAccessToken) {
           navigateToMyblog();
         } else {
-          console.error('리프레쉬 토큰 갱신 실패');
+          // console.error('리프레쉬 토큰 갱신 실패');
           setSignInModalOpen(true);
         }
         return newAccessToken;
       })
       .catch((error) => {
-        console.error('리프레쉬 토큰 갱신 실패', error);
+        // console.error('리프레쉬 토큰 갱신 실패', error);
         setSignInModalOpen(true);
         return null;
       });
   };
   
   const checkAccessToken = (accessToken: string) => {
-    console.log('엑세스토큰 보내기전 :', accessToken);
+    // console.log('엑세스토큰 보내기전 :', accessToken);
     return axios.get(ACCESS_URL(), {
       headers: { 'Authorization': `Bearer ${accessToken}` },
       withCredentials: true
     })
     .then((response) => {
-      console.log("로그인 사용자");
+      // console.log("로그인 사용자");
       return response.status === 200;
     })
     .catch((error) => {
-      console.error("엑세스 토큰 인증 실패", error);
+      // console.error("엑세스 토큰 인증 실패", error);
       return false;
     });
   };
@@ -265,19 +265,19 @@ export const changePassword = async (newPassword: string) => {
             if (refreshToken) {
               handleTokenRefresh(refreshToken, deviceInfo, navigateToMyblog, setSignInModalOpen);
             } else {
-              console.error('비로그인!');
+              // console.error('비로그인!');
               setSignInModalOpen(true);
             }
           }
         })
         .catch(() => {
-          console.error('비로그인!');
+          // console.error('비로그인!');
           setSignInModalOpen(true);
         });
     } else if (refreshToken) {
       handleTokenRefresh(refreshToken, deviceInfo, navigateToMyblog, setSignInModalOpen);
     } else {
-      console.error('비로그인!');
+      // console.error('비로그인!');
       setSignInModalOpen(true);
     }
   };

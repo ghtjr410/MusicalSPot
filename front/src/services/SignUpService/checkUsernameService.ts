@@ -50,17 +50,17 @@ export const onIdButtonClickHandler = async (
     return;
   }
 
-  console.log(`onIdButtonClickHandler 아이디 도착${username}`);
+  // console.log(`onIdButtonClickHandler 아이디 도착${username}`);
   if (!username) return;
   const requestBody: IdCheckRequestDto = { id: username };
-  console.log('Request Body:', requestBody);
+  // console.log('Request Body:', requestBody);
 
   try {
     const response = await idCheckRequest(requestBody);
-    console.log('Response:', response);
+    // console.log('Response:', response);
     idCheckResponse(response, setIdError, setIdMessage, setIdCheck, usernameRef, passwordRef);
   } catch (error) {
-    console.error('Request Failed:', error);
+    // console.error('Request Failed:', error);
   }
 };
 
@@ -100,6 +100,6 @@ const idCheckResponse = (
       }
       break;
     default:
-      console.error('Unknown response code:', code);
+      // console.error('Unknown response code:', code);
   }
 };

@@ -11,7 +11,7 @@ const findNickname = async () => {
     })
     .then(response => response.data)
     .catch(error => {
-      console.error('Error finding nickname', error);
+      // console.error('Error finding nickname', error);
       return null;
     });
     return result;
@@ -24,12 +24,12 @@ export const nicknameCheck = (onSuccess: (nickname: string) => void, onFailure: 
         if (response?.nickname) {
           onSuccess(response.nickname);
         } else {
-          console.log('Nickname not found.');
+          // console.log('Nickname not found.');
           onFailure();
         }
       })
       .catch(error => {
-        console.error('Error occurred while checking nickname', error);
+        // console.error('Error occurred while checking nickname', error);
         onFailure();
       });
   };

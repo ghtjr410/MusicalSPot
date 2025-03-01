@@ -25,7 +25,7 @@ export const categoryList = async () => {
     const result = await axios.get(CATEGORY_LIST());
     return result.data;
   } catch (error) {
-    console.error("Error ", error);
+    // console.error("Error ", error);
     throw error;
   }
 };
@@ -36,7 +36,7 @@ export const searchMusicalsByTitle = async (title: string) => {
     const result = await axios.get(SEARCH_MUSICALS_BY_TITLE(title));
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -47,7 +47,7 @@ export const categoryMusical = async (categoryId: string) => {
     const result = await axios.get(CATEGORY_MUSICAL(categoryId));
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -58,7 +58,7 @@ export const musicalSortedByStartDate = async () => {
     const result = await axios.get(MUSICAL_SORTED_BY_START_DATE());
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -69,7 +69,7 @@ export const musicalSortedByViewCount = async () => {
     const result = await axios.get(MUSICAL_SORTED_BY_VIEW_COUNT());
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -81,7 +81,7 @@ export const allMusicals = async () => {
     const result = await axios.get(ALL_MUSICALS());
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -96,7 +96,7 @@ export const musicalCategoryIdSortedByViewCount = async (
     );
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -109,7 +109,7 @@ export const musicalCategoryIdSortedByEndDate = async (categoryId: string) => {
     );
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -122,7 +122,7 @@ export const musicalCategoryIdSortedByTitle = async (categoryId: string) => {
     );
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -137,7 +137,7 @@ export const musicalCategoryIdSortedByStartDate = async (
     );
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -148,7 +148,7 @@ export const musicalDetails = async (musicalId: string) => {
     const result = await axios.get(MUSICAL_DETAILS(musicalId));
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -159,7 +159,7 @@ export const musicalDetailsIncrementView = async (musicalId: string) => {
     const result = await axios.get(MUSICAL_DETAILS_INCREMENT_VIEW(musicalId));
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -176,7 +176,7 @@ export const musicalLike = async (musicalId: string) => {
     });
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -196,7 +196,7 @@ export const toggleMusicalLike = async (musicalId: string) => {
     );
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };

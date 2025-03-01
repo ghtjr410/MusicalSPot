@@ -84,8 +84,8 @@ export const handleLogin = (
 
     if (passwordError) return passwordError;
     // 여기서 서버요청해서 accesstoken이랑 refreshtoken 발급받아야함
-    console.log(`${username} - ${password}`);
-    console.log(getDeviceInfo())
+    // console.log(`${username} - ${password}`);
+    // console.log(getDeviceInfo())
 
     //////////////////////////////////////////////////
     const id:string = username;
@@ -95,7 +95,7 @@ export const handleLogin = (
         password,
         deviceInfo: getDeviceInfo(),
         ipAddress: '' };
-        console.log(requestBody);
+        // console.log(requestBody);
 
     signInRequest(requestBody).then(signInResponse);
     return null;
