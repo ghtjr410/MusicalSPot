@@ -48,7 +48,7 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({
       setReview(response.data);
       onUpdate(response.data);
     } catch (error) {
-      console.error("Error fetching review details:", error);
+      // console.error("Error fetching review details:", error);
       setError("리뷰를 불러오는데 실패했습니다.");
     } finally {
       setLoading(false);

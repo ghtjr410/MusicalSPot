@@ -29,7 +29,7 @@ const musicalDetailsIncrementView = async (musicalId: string) => {
     const result = await axios.get(MUSICAL_DETAILS_INCREMENT_VIEW(musicalId));
     return result.data;
   } catch (error) {
-    console.error("Error", error);
+    // console.error("Error", error);
     throw error;
   }
 };
@@ -47,7 +47,7 @@ const SearchPage: React.FC = () => {
   const searchMusicalsByTitle = async (title: string) => {
     try {
       const result = await axios.get(SEARCH_MUSICALS_BY_TITLE(title)); // API 호출
-      console.log(result.data); // 검색 결과 콘솔 출력
+      // console.log(result.data); // 검색 결과 콘솔 출력
       return result.data;
     } catch (error) {
       return { data: [], message: "No results found" }; // 에러 처리
@@ -97,10 +97,10 @@ const SearchPage: React.FC = () => {
   const handleImageClick = async (id: number) => {
     try {
       const result = await musicalDetailsIncrementView(id.toString()); // 조회수 증가 함수 호출
-      console.log("View Count Increment Response:", result); // 결과 콘솔 출력
+      // console.log("View Count Increment Response:", result); // 결과 콘솔 출력
       navigate(`/details/${id}`); // DetailPage로 이동
     } catch (error) {
-      console.error("Error incrementing view count:", error);
+      // console.error("Error incrementing view count:", error);
     }
   };
 

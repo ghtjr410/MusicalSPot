@@ -66,7 +66,7 @@ const ReviewList: React.FC = () => {
       let response;
       if (musicalId) {
         response = await MusicalReviews(musicalId);
-        console.log(response);
+        // console.log(response);
       } else {
         switch (sortType) {
           case "recent":
@@ -96,7 +96,7 @@ const ReviewList: React.FC = () => {
         setMusicalTitle(data[0].musicalTitle);
       }
     } catch (error) {
-      console.error("리뷰 로딩 중 오류 발생:", error);
+      // console.error("리뷰 로딩 중 오류 발생:", error);
       setError("리뷰를 불러오는 데 실패했습니다. 다시 시도해 주세요.");
     } finally {
       setLoading(false);
